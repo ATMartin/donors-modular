@@ -1,0 +1,15 @@
+body {
+  font-family: "Lucidia Sans", Arial, sans-serif;
+}
+
+.giftbox {
+  display: inline-block;
+  float: left;
+  width: 148px;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.complete {
+  background-color: #C0C0C0;
+}
