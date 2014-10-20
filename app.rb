@@ -3,16 +3,14 @@ require 'stripe'
 require 'pry'
 require_relative 'database'
 
-require 'dotenv' if development?
-Dotenv.load if development?
 
 Database.initialize
 Database.seed_data if Donation.count < 199
 
 
  
-set :publishable_key, 'pk_test_KFojpZFSM1VdKsgApaMozAIA'
-set :secret_key, 'sk_test_FQks2lhN9ueh8lsb8jslDvlL'
+set :publishable_key, 
+set :secret_key, 
 
 Stripe.api_key = settings.secret_key
  
