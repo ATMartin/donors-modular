@@ -36,7 +36,12 @@ post '/charge' do
   )
 
   @donation.update(:paid => 'true')
- 
+  
+  @done = Donation.all(:paid => 'true')
+  @total = 0
+  @done.each do |done|
+    @total += done.amount
+  end
   erb :charge
 end
  
@@ -82,4 +87,6 @@ __END__
   <% end %>
  
 @@charge
-  <h2>Thanks, you paid <strong><%= @donation.amount %></strong>!</h2>
+  <h2>Thanks, you gave <strong>$<%= @donation.amount %></strong>!</h2>
+  That makes the total: $<%= @total %> so far!
+  <a href="/">Go see what it looks like with your square taken!</a>
