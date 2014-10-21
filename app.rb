@@ -9,7 +9,7 @@ Database.seed_data if Donation.count < 199
 
 
  
-set :publishable_key, 
+set :publishable_key,
 set :secret_key, 
 
 Stripe.api_key = settings.secret_key
@@ -61,7 +61,7 @@ __END__
  
 @@index
   <div class="container">
-    <div class="row">
+    <div class="row lights">
       <div class="col-md-6">
         <h3>Merry Christmas GOAT!</h3>
         <p>The end of the calendar year always brings excitement. Thanksgiving and Christmas are around the corner and that means time with family and friends that we often miss during the year.</p>

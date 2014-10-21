@@ -11,6 +11,11 @@ body {
   text-align: center;
 }
 
+.lights {
+  background: url('/img/lights.png') no-repeat;
+  padding-top: 50px;
+}
+
 .complete {
   background-color: #C0C0C0;
 }
