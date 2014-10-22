@@ -8,8 +8,8 @@ Database.seed_data if Donation.count < 199
 
 
  
-set :publishable_key, 'pk_test_KFojpZFSM1VdKsgApaMozAIA'
-set :secret_key, 'sk_test_bNxlqRguuN3sRelyQW8sw7bP'
+set :publishable_key, 
+set :secret_key, 
 
 Stripe.api_key = settings.secret_key
  
