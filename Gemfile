@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'sinatra'
 gem 'stripe'
 gem 'data_mapper'
-gem 'dm-sqlite-adapter', '~> 1.2.0'
+gem 'pg'
 
 group :development do
   gem 'shotgun'
