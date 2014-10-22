@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'stripe'
-require 'pry'
 require_relative 'database'
 
 
