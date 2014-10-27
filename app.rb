@@ -17,6 +17,15 @@ get '/' do
   @donations = Donation.all
   erb :index
 end
+
+get '/goal' do
+  @done = Donation.all(:paid => 'true')
+  @total = 0
+  @done.each do |done|
+    @total += done.amount
+  end
+  erb :goal
+end
  
 post '/charge' do
   @donation = Donation.get(params[:donation])
@@ -104,6 +113,31 @@ __END__
   <% end %>
  
 @@charge
-  <h2>Thanks, you gave <strong>$<%= @donation.amount %></strong>!</h2>
-  That makes the total: $<%= @total %> so far!
-  <a href="/">Go see what it looks like with your square taken!</a>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <h2>Thanks for being a part of GOAT Christmas! You gave <strong>$<%= @donation.amount %></strong>!</h2>
+      <p>That makes the total: <b>$<%= @total %></b> so far!</p>
+      <p>You'll be receiving an email soon so we can get more details from you to send a tax-reciept and some other goodies!</p>
+      <p>It would mean the world to us if you would share this with your friends! Tweet it, facebook it, instagram it, or even email it!<p>
+        <div class="well">
+          <h4>Example tweet:</h4>
+          <h4>Example facebook post:</h4>
+          <h4>Photos to use:</h4>
+        </div>
+      <a href="/">Go see what it looks like with your square taken!</a>
+    </div>
+  </div>
+</div>
+
+@@goal
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <center>
+        <h4>Our Christmas goal is currently at:</h4>
+        <h1><b><%= @total %></b> of <b>$21,100</b></h1>
+      </center>
+    </div>
+  </div>
+</div>
