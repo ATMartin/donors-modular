@@ -2,7 +2,6 @@ require 'sinatra'
 require 'stripe'
 require_relative 'database'
 
-
 Database.initialize
 Database.seed_data if Donation.count < 199
 
@@ -27,26 +26,31 @@ get '/goal' do
 end
 
 post '/charge' do
-  @donation = Donation.get(params[:donation])
-  @amount = @donation.amount*100
+  @donation = Donation.get(params[:donation_id])
 
   customer = Stripe::Customer.create(
-    :email => 'customer@example.com',
-    :card  => params[:stripeToken]
+    email: params[:email],
+    card: params[:token_id]
   )
 
-  charge = Stripe::Charge.create(
-    :amount      => @amount,
-    :description => 'Sinatra Charge',
-    :currency    => 'usd',
-    :customer    => customer
-  )
+  begin
+    Stripe::Charge.create(
+      amount: @donation.amount*100,
+      description: "200 Donors",
+      currency: 'usd',
+      customer: customer.id
+    )
 
-  @donation.update(:paid => 'true')
+    @donation.update(paid: 'true')
+  rescue Stripe::CardError => e
+    body = e.json_body
+    @error = body[:error]
+  end
 
-  @done = Donation.all(:paid => 'true')
+
+  paid_donations = Donation.all(paid: 'true')
   @total = 0
-  @done.each do |done|
+  paid_donations.each do |done|
     @total += done.amount
   end
 
@@ -61,6 +65,8 @@ __END__
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css' href='css/main.css'/>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://checkout.stripe.com/checkout.js"></script>
   </head>
   <body>
     <%= yield %>
@@ -87,35 +93,60 @@ __END__
 
   <% @donations.each do |donation| %>
     <% if donation.paid? %>
-      <div class="giftbox complete">
-        Amount: $<%= donation.amount %>.00 Complete!
-      </div>
+    <div class="giftbox complete">
+      Amount: $<%= donation.amount %>.00 Complete!
+    </div>
     <% else %>
     <div class="giftbox">
       <form action="/charge" method="post">
         <label class="amount">
           <span>Amount: $<%= donation.amount %>.00</span>
-          <input type="hidden" name="donation" value="<%= donation.id %>">
         </label>
-
-      <script src="https://checkout.stripe.com/v3/checkout.js"
-              class="stripe-button"
-              data-key="<%= settings.publishable_key %>"
-              data-name="Great Outdoor Adventure Trips"
-              data-amount="<%= donation.amount*100 %>"
-              data-allowRememberMe="false"
-              data-panel-label="Donate"
-              data-label="Donate $<%= donation.amount %>"
-              data-image="http://goattrips.org/images/160x160.jpg"></script>
+        <button type="submit" class="stripe-button-el" style="visibility: visible;"
+          data-amount="<%= donation.amount*100 %>" data-id="<%= donation.id %>">
+          <span style="display: block; min-height: 30px;">Donate $<%= donation.amount %></span>
+        </button>
       </form>
     </div>
     <% end %>
   <% end %>
 
+  <script>
+    $('.giftbox').on('click', 'button', function(e) {
+      e.preventDefault();
+      $this = $(this);
+
+      var handler = StripeCheckout.configure({
+        key: '<%= settings.publishable_key %>',
+        name: "Great Outdoor Adventure Trips",
+        image: 'http://goattrips.org/images/160x160.jpg',
+        amount: $this.data('amount'),
+        closed: function() {
+        },
+        token: function(token) {
+          console.log(token);
+          $.post( "/charge", {
+            token_id: token.id,
+            donation_id: $this.data('id'),
+            email: token.email
+          }).fail(function() {
+            alert( "Sorry! There was an error processing your donation." );
+          });
+        }
+      });
+
+      handler.open();
+    });
+  </script>
+
 @@charge
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
+      <% if @error %>
+        <h2>Oh no! There was an error.</h2>
+        <p><%= @error[:message] %></p>
+      <% else %>
       <h2>Thanks for being a part of GOAT Christmas! You gave <strong>$<%= @donation.amount %></strong>!</h2>
       <p>That makes the total: <b>$<%= @total %></b> so far!</p>
       <p>You'll be receiving an email soon so we can get more details from you to send a tax-reciept and some other goodies!</p>
@@ -126,6 +157,7 @@ __END__
           <h4>Photos to use:</h4>
         </div>
       <a href="/">Go see what it looks like with your square taken!</a>
+      <% end %>
     </div>
   </div>
 </div>
