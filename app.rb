@@ -124,7 +124,6 @@ __END__
         closed: function() {
         },
         token: function(token) {
-          console.log(token);
           $.post( "/charge", {
             token_id: token.id,
             donation_id: $this.data('id'),
