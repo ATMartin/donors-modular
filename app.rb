@@ -7,12 +7,11 @@ Database.initialize
 Database.seed_data if Donation.count < 199
 
 
- 
-set :publishable_key, 
-set :secret_key, 
+set :publishable_key,
+set :secret_key,
 
 Stripe.api_key = settings.secret_key
- 
+
 get '/' do
   @donations = Donation.all
   erb :index
@@ -26,16 +25,16 @@ get '/goal' do
   end
   erb :goal
 end
- 
+
 post '/charge' do
   @donation = Donation.get(params[:donation])
   @amount = @donation.amount*100
- 
+
   customer = Stripe::Customer.create(
     :email => 'customer@example.com',
     :card  => params[:stripeToken]
   )
- 
+
   charge = Stripe::Charge.create(
     :amount      => @amount,
     :description => 'Sinatra Charge',
@@ -44,17 +43,18 @@ post '/charge' do
   )
 
   @donation.update(:paid => 'true')
-  
+
   @done = Donation.all(:paid => 'true')
   @total = 0
   @done.each do |done|
     @total += done.amount
   end
+
   erb :charge
 end
- 
+
 __END__
- 
+
 @@ layout
   <!DOCTYPE html>
   <html>
@@ -66,7 +66,7 @@ __END__
     <%= yield %>
   </body>
   </html>
- 
+
 @@index
   <div class="container">
     <div class="row lights">
@@ -98,8 +98,8 @@ __END__
           <input type="hidden" name="donation" value="<%= donation.id %>">
         </label>
 
-      <script src="https://checkout.stripe.com/v3/checkout.js" 
-              class="stripe-button" 
+      <script src="https://checkout.stripe.com/v3/checkout.js"
+              class="stripe-button"
               data-key="<%= settings.publishable_key %>"
               data-name="Great Outdoor Adventure Trips"
               data-amount="<%= donation.amount*100 %>"
@@ -111,7 +111,7 @@ __END__
     </div>
     <% end %>
   <% end %>
- 
+
 @@charge
 <div class="container">
   <div class="row">
