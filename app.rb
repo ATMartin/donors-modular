@@ -6,8 +6,9 @@ Database.initialize
 Database.seed_data if Donation.count < 199
 
 
-set :publishable_key,
-set :secret_key,
+
+set :publishable_key, 
+set :secret_key, 
 enable :sessions
 
 Stripe.api_key = settings.secret_key
@@ -132,7 +133,7 @@ __END__
       var handler = StripeCheckout.configure({
         key: '<%= settings.publishable_key %>',
         name: "Great Outdoor Adventure Trips",
-        image: 'http://goattrips.org/images/160x160.jpg',
+        image: 'img/160x160.jpg',
         amount: $this.data('amount'),
         closed: function() {
         },
