@@ -8,6 +8,7 @@ Database.seed_data if Donation.count < 199
 
 set :publishable_key,
 set :secret_key,
+enable :sessions
 
 Stripe.api_key = settings.secret_key
 
@@ -42,16 +43,23 @@ post '/charge' do
     )
 
     @donation.update(paid: 'true')
+    session[:id] = @donation.id
   rescue Stripe::CardError => e
     body = e.json_body
-    @error = body[:error]
+    session[:error] = body[:error][:message]
+    halt 500
   end
 
-  erb "Done"
+  halt 200
 end
 
 get '/thanks' do
-  @donation = Donation.get(params[:id])
+  @error = session[:error]
+  if @error
+    halt erb(:thanks)
+  end
+
+  @donation = Donation.get(session[:id])
 
   paid_donations = Donation.all(paid: 'true')
   @total = 0
@@ -134,7 +142,7 @@ __END__
             donation_id: $this.data('id'),
             email: token.email
           }).done(function() {
-            window.location.href = "/thanks?id=" + $this.data('id');
+            window.location.href = "/thanks";
           }).fail(function() {
             alert( "Sorry! There was an error processing your donation." );
           });
@@ -151,7 +159,7 @@ __END__
     <div class="col-md-6 col-md-offset-3">
       <% if @error %>
         <h2>Oh no! There was an error.</h2>
-        <p><%= @error[:message] %></p>
+        <p><%= @error %></p>
       <% else %>
       <h2>Thanks for being a part of GOAT Christmas! You gave <strong>$<%= @donation.amount %></strong>!</h2>
       <p>That makes the total: <b>$<%= @total %></b> so far!</p>
