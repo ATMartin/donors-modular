@@ -7,8 +7,8 @@ Database.seed_data if Donation.count < 199
 
 
 
-set :publishable_key, ENV['publishable_key']
-set :secret_key, ENV['secret_key']
+set :publishable_key, ENV['PUBLISHABLE_KEY']
+set :secret_key, ENV['SECRET_KEY']
 enable :sessions
 
 Stripe.api_key = settings.secret_key
