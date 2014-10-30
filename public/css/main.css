@@ -2,6 +2,11 @@ body {
   font-family: "Lucidia Sans", Arial, sans-serif;
 }
 
+.bigbox {
+  max-width: 1184px;
+  margin: 0 auto;
+}
+
 .giftbox {
   display: inline-block;
   float: left;

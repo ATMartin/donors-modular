@@ -7,8 +7,8 @@ Database.seed_data if Donation.count < 199
 
 
 
-set :publishable_key, 
-set :secret_key, 
+set :publishable_key, ENV['publishable_key']
+set :secret_key, ENV['secret_key']
 enable :sessions
 
 Stripe.api_key = settings.secret_key
@@ -105,25 +105,27 @@ __END__
     </div>
   </div>
 
-  <% @donations.each do |donation| %>
-    <% if donation.paid? %>
-    <div class="giftbox complete">
-      Amount: $<%= donation.amount %>.00 Complete!
-    </div>
-    <% else %>
-    <div class="giftbox">
-      <form action="/charge" method="post">
-        <label class="amount">
-          <span>Amount: $<%= donation.amount %>.00</span>
-        </label>
-        <button type="submit" class="stripe-button-el" style="visibility: visible;"
-          data-amount="<%= donation.amount*100 %>" data-id="<%= donation.id %>">
-          <span style="display: block; min-height: 30px;">Donate $<%= donation.amount %></span>
-        </button>
-      </form>
-    </div>
+  <div class="bigbox">
+    <% @donations.each do |donation| %>
+      <% if donation.paid? %>
+      <div class="giftbox complete">
+        Amount: $<%= donation.amount %>.00 Complete!
+      </div>
+      <% else %>
+      <div class="giftbox">
+        <form action="/charge" method="post">
+          <label class="amount">
+            <span>Amount: $<%= donation.amount %>.00</span>
+          </label>
+          <button type="submit" class="stripe-button-el" style="visibility: visible;"
+            data-amount="<%= donation.amount*100 %>" data-id="<%= donation.id %>">
+            <span style="display: block; min-height: 30px;">Donate $<%= donation.amount %></span>
+          </button>
+        </form>
+      </div>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
   <script>
     $('.giftbox').on('click', 'button', function(e) {
@@ -184,6 +186,7 @@ __END__
       <center>
         <h4>Our Christmas goal is currently at:</h4>
         <h1><b><%= @total %></b> of <b>$21,100</b></h1>
+        <p>(from <%= @done.count %> donations)</p>
       </center>
     </div>
   </div>
