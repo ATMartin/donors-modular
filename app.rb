@@ -47,6 +47,11 @@ post '/charge' do
     @error = body[:error]
   end
 
+  erb "Done"
+end
+
+get '/thanks' do
+  @donation = Donation.get(params[:id])
 
   paid_donations = Donation.all(paid: 'true')
   @total = 0
@@ -54,7 +59,7 @@ post '/charge' do
     @total += done.amount
   end
 
-  erb :charge
+  erb :thanks
 end
 
 __END__
@@ -128,6 +133,8 @@ __END__
             token_id: token.id,
             donation_id: $this.data('id'),
             email: token.email
+          }).done(function() {
+            window.location.href = "/thanks?id=" + $this.data('id');
           }).fail(function() {
             alert( "Sorry! There was an error processing your donation." );
           });
@@ -138,7 +145,7 @@ __END__
     });
   </script>
 
-@@charge
+@@thanks
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
