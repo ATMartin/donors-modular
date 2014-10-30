@@ -3,8 +3,6 @@ require 'stripe'
 require_relative 'database'
 
 Database.initialize
-Database.seed_data if Donation.count < 199
-
 
 
 set :publishable_key, ENV['PUBLISHABLE_KEY']
