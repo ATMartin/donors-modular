@@ -89,7 +89,7 @@ __END__
   <div class="container">
     <div class="row lights">
       <div class="col-md-6">
-        <h3>Merry Christmas GOAT!</h3>
+        <h1>Merry Christmas GOAT!</h1>
         <p>The end of the calendar year always brings excitement. Thanksgiving and Christmas are around the corner and that means time with family and friends that we often miss during the year.</p>
         <p>The end of the year also brings planning and looking forward to the next year. At GOAT, that means planning our capacity for the following year. How many kids can we provide summer experiences for? How many new kids will get to join our Adventure Teams? How many kids will we be able to hire this year?</p>
         <p>As we look towards the next year, much of this planning invovles budgeting. Our goal is to serve kids and change their lives in the long-term. To do this, we have to steward our resources well in the short term.</p>
@@ -97,7 +97,7 @@ __END__
       <div class="col-md-6">
         <h3>&nbsp;</h3>
         <p>This is where we need your help! If someone gives each of the values below from $1-200 we will raise just over $20,000 to kickstart our programs for 2015.</p>
-        <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season.</p>
+        <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season. If you're interested in learning more about GOAT, please visit our website at <a href="http://goattrips.org">www.goattrips.org</a></p>
         <br /><br />Because we value your privacy, all donations are <a href="http://stripe.com"><img src="img/solid@2x.png" width="119" height="26" border="0" /></a>
       </div>
     </div>
@@ -113,7 +113,7 @@ __END__
       <div class="giftbox">
         <form action="/charge" method="post">
           <label class="amount">
-            <span>Amount: $<%= donation.amount %>.00</span>
+            
           </label>
           <button type="submit" class="stripe-button-el" style="visibility: visible;"
             data-amount="<%= donation.amount*100 %>" data-id="<%= donation.id %>">
@@ -123,6 +123,16 @@ __END__
       </div>
       <% end %>
     <% end %>
+  </div>
+
+
+  <div class="container">
+    <div class="row footer">
+      <div class="col-md-6">
+        <p>To learn more about <a href="http://goattrips.org">GOAT</a>, you can visit our website at <a href="http://goattrips.org">goattrips.org</a> or on <a href="http://facebook.com/goattrips">facebook</a>.</p>
+        <p>All donations are processed securely by <a href="http://stripe.com">Stripe</a>.</p>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -155,6 +165,14 @@ __END__
   </script>
 
 @@thanks
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="container">
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
@@ -162,16 +180,23 @@ __END__
         <h2>Oh no! There was an error.</h2>
         <p><%= @error %></p>
       <% else %>
-      <h2>Thanks for being a part of GOAT Christmas! You gave <strong>$<%= @donation.amount %></strong>!</h2>
-      <p>That makes the total: <b>$<%= @total %></b> so far!</p>
+      <center>  
+        <h3>Thanks for being a part of GOAT Christmas!</h3> 
+        <h2>You gave <strong>$<%= @donation.amount %></strong>!</h2>
+        <p>(that makes the total: <b>$<%= @total %></b> so far)</p>
+      </center>
       <p>You'll be receiving an email soon so we can get more details from you to send a tax-reciept and some other goodies!</p>
-      <p>It would mean the world to us if you would share this with your friends! Tweet it, facebook it, instagram it, or even email it!<p>
+      <p><p>
+        <br />
         <div class="well">
-          <h4>Example tweet:</h4>
-          <h4>Example facebook post:</h4>
-          <h4>Photos to use:</h4>
+          <p class="gracias">It would mean the world to us if you would share this with your friends! Tweet it, facebook it, instagram it, or even email it! Let everybody know that you're a part of GOAT Christmas - that you're a part of changing lives!</p>
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://christmas.goattrips.org" data-text="I participated in GOAT Christmas! #goatchristmas" data-via="goattrips">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <div class="fb-like" data-href="https://christmas.goattrips.org" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         </div>
-      <a href="/">Go see what it looks like with your square taken!</a>
+      <center>
+        <a href="/">Go see what it looks like with your amount complete!</a>
+      </center>
       <% end %>
     </div>
   </div>

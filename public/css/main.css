@@ -18,7 +18,7 @@ body {
 
 .lights {
   background: url('/img/lights.png') no-repeat;
-  padding-top: 50px;
+  padding-top: 90px;
 }
 
 .complete {
@@ -32,9 +32,19 @@ body {
   content: '';
   height: 100%;
   display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+p.gracias {
+  font-size: 1.5em;
+}
+
+.footer {
+  border-top: 1px solid #C0C0C0;
+  padding: 1em 0;
 }
 
 .stripe-button-el {
