@@ -25,12 +25,13 @@ body {
   background-color: #C0C0C0;
   font-weight: 900;
   vertical-align: middle;
+  display: inline-block;
 }
 
 .complete:after {
   content: '';
   height: 100%;
-  display: inline-block;
+  display: block;
 }
 
 .stripe-button-el {
