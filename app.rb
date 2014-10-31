@@ -145,7 +145,7 @@ __END__
         key: '<%= settings.publishable_key %>',
         name: "Great Outdoor Adventure Trips",
         image: 'img/160x160.jpg',
-        allow-remember-me: 'false',
+        allowRememberMe: 'false',
         amount: $this.data('amount'),
         closed: function() {
         },
