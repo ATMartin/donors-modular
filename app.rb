@@ -80,6 +80,8 @@ __END__
     <link rel='stylesheet' type='text/css' href='css/main.css'/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
+    <meta property="og:image" content="http://christmas.goattrips.org/img/160x160.jpg"/>
+    <meta property="og:image:secure_url" content="https://christmas.goattrips.org/img/160x160.jpg" />
   </head>
   <body>
     <%= yield %>
