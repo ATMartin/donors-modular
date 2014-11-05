@@ -111,7 +111,7 @@ __END__
         <p>As we look towards the next year, much of this planning invovles budgeting. Our goal is to serve kids and change their lives in the long-term. To do this, we have to steward our resources well in the short term.</p>
       </div>
       <div class="col-md-6">
-        <h3>&nbsp;</h3>
+        <h1>&nbsp;</h1>
         <p>This is where we need your help! If someone gives each of the values below from $1-200 we will raise just over $20,000 to kickstart our programs for 2015.</p>
         <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season. If you're interested in learning more about GOAT, please visit our website at <a href="http://goattrips.org">www.goattrips.org</a></p>
         <br /><br />Because we value your privacy, all donations are <a href="http://stripe.com"><img src="img/solid@2x.png" width="119" height="26" border="0" /></a>
