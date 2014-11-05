@@ -80,8 +80,9 @@ __END__
     <link rel='stylesheet' type='text/css' href='css/main.css'/>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="https://checkout.stripe.com/checkout.js"></script>
-    <meta property="og:image" content="http://christmas.goattrips.org/img/400x400.jpg"/>
+    <meta property="og:image" content="http://christmas.goattrips.org/img/400x400.jpg" />
     <meta property="og:image:secure_url" content="https://christmas.goattrips.org/img/400x400.jpg" />
+    <meta property="og:description" content="I participated in GOAT Christmas and you should too! If one person gives each of the values below from $1-200 we will raise just over $20,000 to kickstart our programs for 2015. GOAT would never happen without passionate people giving generously to changing lives in Greenville." />
   </head>
   <body>
     <%= yield %>
