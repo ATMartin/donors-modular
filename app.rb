@@ -225,7 +225,7 @@ __END__
     <div class="col-md-6 col-md-offset-3">
       <center>
         <h4>Our Christmas goal is currently at:</h4>
-        <h1><b>$<%= @total %></b> of <b>$21,100</b></h1>
+        <h1><b>$<%= @total %></b> of <b>$20,100</b></h1>
         <p>(from <%= @done.count %> donations)</p>
         <p><a href="/">Return to GOAT Christmas</a></p>
       </center>
