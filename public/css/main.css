@@ -19,6 +19,7 @@ body {
 .lights {
   background: url('/img/lights.png') no-repeat;
   padding-top: 90px;
+  padding-bottom: 1em;
 }
 
 .complete {
