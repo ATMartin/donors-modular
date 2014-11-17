@@ -115,7 +115,7 @@ __END__
         <p>This is where we need your help! If someone gives each of the values below from $1-200 we will raise just over $20,000 to kickstart our programs for 2015.</p>
         <p>Here's a sneak peak of how you're helping change lives:</p>
         <div class="video-container">
-         <iframe src="http://www.youtube.com/embed/vkb0v5oR9qc" frameborder="0" width="560" height="315"></iframe>
+         <iframe src="//www.youtube.com/embed/vkb0v5oR9qc?rel=0" frameborder="0" width="560" height="315"></iframe>
         </div>
         <!-- <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season. If you're interested in learning more about GOAT, please visit our website at <a href="http://goattrips.org">www.goattrips.org</a></p> -->
         <br /><br />Because we value your privacy, all donations are <a href="http://stripe.com"><img src="img/solid@2x.png" width="119" height="26" border="0" /></a>
