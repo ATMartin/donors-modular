@@ -122,7 +122,7 @@ __END__
       </div>
     </div>
   
-
+    <div class="row">
   <div class="bigbox">
     <% @donations.each do |donation| %>
       <% if donation.paid? %>
@@ -144,6 +144,7 @@ __END__
       <% end %>
     <% end %>
   </div>
+</div>
 
 
   
