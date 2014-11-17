@@ -113,7 +113,8 @@ __END__
       <div class="col-md-6">
         <h1>&nbsp;</h1>
         <p>This is where we need your help! If someone gives each of the values below from $1-200 we will raise just over $20,000 to kickstart our programs for 2015.</p>
-        <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season. If you're interested in learning more about GOAT, please visit our website at <a href="http://goattrips.org">www.goattrips.org</a></p>
+        <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season!</p> 
+        <p>To show how each of you are changing the world, we put together a video telling the story of one of our kids. <a href="http://youtu.be/vkb0v5oR9qc">Check out the video on YouTube</a>&rarr;</p>
         <br /><br />Because we value your privacy, all donations are <a href="http://stripe.com"><img src="img/solid@2x.png" width="119" height="26" border="0" /></a>
       </div>
     </div>
