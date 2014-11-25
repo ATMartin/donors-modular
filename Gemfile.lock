@@ -58,11 +58,15 @@ GEM
     fastercsv (1.5.5)
     json (1.8.1)
     json_pure (1.8.1)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
     multi_json (1.10.1)
     netrc (0.7.7)
     pg (0.17.1)
+    polyglot (0.3.5)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -96,6 +100,9 @@ GEM
       mime-types (>= 1.25, < 3.0)
       rest-client (~> 1.4)
     tilt (1.4.1)
+    treetop (1.4.15)
+      polyglot
+      polyglot (>= 0.3.1)
     tux (0.3.0)
       ripl (>= 0.3.5)
       ripl-multi_line (>= 0.2.4)
@@ -109,6 +116,7 @@ PLATFORMS
 DEPENDENCIES
   data_mapper
   dm-postgres-adapter
+  mail
   pg
   pry
   shotgun

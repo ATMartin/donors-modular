@@ -220,6 +220,20 @@ __END__
   </div>
 </div>
 
+Thanks so much for helping make GOAT Christmas a reality! 
+
+We would love to get your information so we can follow up with a tax receipt and some other GOAT goodies. If you wouldn't mind replying to this email with your name and mailing address and phone number for our records, or you can fill out this form if that's more convenient - http://gtrps.org/1AtqNcK
+
+To say thanks, we have a couple of exciting offers for you!
+
+If you would like to redeem your 1-month membership at the Mountain Goat indoor climbing gym, please complete the following form to recieve your voucher and let us know who will be redeeming it: http://gtrps.org/11sS6nE
+
+Our friends at Dapper Ink in Greenville also make some beautiful screen printed goods that make great Christmas Gifts and they are offering 10% off your order in their store. To view and print your 10% off coupon, please visit this link: http://gtrps.org/1CaQik0
+
+Thanks again for helping make GOAT a reality for kids all over Greenville and the state of SC. We would love for you to share GOAT Christmas with your friends and family and encourage them to give whatever they can. You can also keep up with the progress at https://christmas.goattrips.org/goal 
+
+Please let me know if you have any thoughts or questions about GOAT and/or GOAT Christmas!
+
 @@goal
 <div class="container">
   <div class="row">
