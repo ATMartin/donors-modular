@@ -60,8 +60,9 @@ post '/charge' do
     halt 500
   end
 
+
   mail = Mail.deliver do
-  to params[:email]
+  to customer.email
   from 'Ryan McCrary <ryan@goattrips.org>'
   subject 'GOAT Christmas!'
   text_part do
