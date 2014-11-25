@@ -60,27 +60,10 @@ post '/charge' do
     halt 500
   end
 
-  halt 200
-end
-
-get '/thanks' do
-  @error = session[:error]
-  if @error
-    halt erb(:thanks)
-  end
-
-  @donation = Donation.get(session[:id])
-
-  paid_donations = Donation.all(paid: 'true')
-  @total = 0
-  paid_donations.each do |done|
-    @total += done.amount
-  end
-
   mail = Mail.deliver do
-  to 'yourRecipient@domain.com'
-  from 'Your Name <name@domain.com>'
-  subject 'This is the subject of your email'
+  to params[:email]
+  from 'Ryan McCrary <ryan@goattrips.org>'
+  subject 'GOAT Christmas!'
   text_part do
     body 'Thanks so much for helping make GOAT Christmas a reality! 
 
@@ -122,6 +105,23 @@ GOAT'
 Executive Director<br />
 GOAT</p>'
   end
+  end
+
+  halt 200
+end
+
+get '/thanks' do
+  @error = session[:error]
+  if @error
+    halt erb(:thanks)
+  end
+
+  @donation = Donation.get(session[:id])
+
+  paid_donations = Donation.all(paid: 'true')
+  @total = 0
+  paid_donations.each do |done|
+    @total += done.amount
   end
 
   erb :thanks
