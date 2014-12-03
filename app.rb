@@ -93,9 +93,12 @@ GOAT'
 
 <p>To say thanks, we have a couple of exciting offers for you!
 
-<p>If you would like to redeem your 1-month membership at the Mountain Goat indoor climbing gym, please complete the following form to recieve your voucher and let us know who will be redeeming it: http://gtrps.org/11sS6nE</p>
+<p>Our friends at Half-Moon Outfitters have been providing the Southeast with quality goods and services for all outdoor adventure and travel since 1993. They are offering 10% off your order in their stores (excluding Kayaks and Paddleboards). To print your 10% off coupon, please visit this link: http://gtrps.org/1yfyiSR</p>
+
 
 <p>Our friends at Dapper Ink in Greenville also make some beautiful screen printed goods that make great Christmas Gifts and they are offering 10% off your order in their store. To view and print your 10% off coupon, please visit this link: http://gtrps.org/1CaQik0</p>
+
+<p>If you would like to redeem your 1-month membership at the Mountain Goat indoor climbing gym, please complete the following form to recieve your voucher and let us know who will be redeeming it: http://gtrps.org/11sS6nE</p>
 
 <p>Thanks again for helping make GOAT a reality for kids all over Greenville and the state of SC. We would love for you to share GOAT Christmas with your friends and family and encourage them to give whatever they can. You can also keep up with the progress at https://christmas.goattrips.org/goal </p>
 
@@ -145,7 +148,8 @@ __END__
   </head>
   <body>
     <%= yield %>
-
+  <script type="text/javascript" src="https://use.typekit.net/cje3rie.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -262,23 +266,30 @@ __END__
         <h2>You gave <strong>$<%= @donation.amount %></strong>!</h2>
         <p>(that makes the total: <b>$<%= @total %></b> so far)</p>
       </center>
-      <p>You'll be receiving an email soon so we can get more details from you to send a tax-reciept and some other goodies!</p>
-      <p>To say thanks, we have a couple of exciting offers for you!
-
-<p>If you would like to redeem your 1-month membership at the Mountain Goat indoor climbing gym, please complete the following form to recieve your voucher and let us know who will be redeeming it: <a href="http://gtrps.org/11sS6nE">Claim your free month voucher</a></p>
-
-<p>Our friends at Dapper Ink in Greenville also make some beautiful screen printed goods that make great Christmas Gifts and they are offering 10% off your order in their store. To view and print your 10% off coupon, please visit this link: <a href="http://gtrps.org/1CaQik0">Dapper Ink 10% off coupon</a></p>
-        <br />
+      <p>You'll be receiving an email soon so we can get more details from you to send a tax-reciept and some other goodies! <a href="/">See what it looks like with your amount complete!</a></p>
+      <br />
         <div class="well">
           <p class="gracias">It would mean the world to us if you would share this with your friends! Tweet it, facebook it, instagram it, or even email it! Let everybody know that you're a part of GOAT Christmas - that you're a part of changing lives!</p>
           <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://christmas.goattrips.org" data-text="I participated in GOAT Christmas! You should too! #goatchristmas" data-via="goattrips">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
           <div class="fb-like" data-href="https://christmas.goattrips.org" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
         </div>
-      <center>
-        <a href="/">Go see what it looks like with your amount complete!</a>
-      </center>
       <% end %>
+    </div>
+  </div>
+  <div class="row">
+      <center><p>To say thanks, we have a couple of exciting offers for you!</p></center>
+    <div class="col-md-4">
+      <h3 class="offer"><b>10% off</b> Half-Moon Outfitters</h3>
+      <p>Our friends at Half-Moon Outfitters have been providing the Southeast with quality goods and services for all outdoor adventure and travel since 1993. They are offering 10% off your order in their stores (excluding Kayaks and Paddleboards). To print your 10% off coupon, please visit this link: <a href="http://gtrps.org/1yfyiSR">Half-Moon 10% off coupon</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="offer"><b>10% off</b> Landmark Project</h3>
+      <p>Our friends at Dapper Ink in Greenville also make some beautiful screen printed goods that make great Christmas Gifts and they are offering 10% off your order in their store. To view and print your 10% off coupon, please visit this link: <a href="http://gtrps.org/1CaQik0">Dapper Ink 10% off coupon</a></p>
+    </div>
+    <div class="col-md-4">
+      <h3 class="offer"><b>Free</b> climbing membership</h3>
+      <p>If you would like to redeem your 1-month membership at the Mountain Goat indoor climbing gym, please complete the following form to recieve your voucher and let us know who will be redeeming it: <a href="http://gtrps.org/11sS6nE">Claim your free month voucher</a></p>
     </div>
   </div>
 </div>
