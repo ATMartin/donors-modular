@@ -177,7 +177,7 @@ __END__
         <h1>&nbsp;</h1>
         <p>This is where we need your help! If someone gives each of the values below from $1-200 we will raise just over $20,000 to kickstart our programs for 2015.</p>
         <p>GOAT would never happen without passionate people giving generously to changing lives in Greenville. We're excited to have each of you as a partner in this Christmas season!</p> 
-        <p><b>As a token of thanks, our friends at <a href="http://dapperink.com">Dapper Ink</a> and <a href="http://halfmoonoutfitters.com">Half-Moon Outfitters</a> are both offering 10% of orders in their stores for anyone who participates!</b> After you give you'll recieve an email with details!</p>
+        <p><b>As a token of thanks, our friends at <a href="http://dapperink.com">Dapper Ink</a> and <a href="http://halfmoonoutfitters.com">Half-Moon Outfitters</a> are both offering 10% off orders in their stores for anyone who participates!</b> After you give you'll recieve an email with details!</p>
         <!--<p>To show how each of you are changing the world, we put together a video telling the story of one of our kids. <a href="http://youtu.be/vkb0v5oR9qc">Check out the video on YouTube</a>&rarr;</p>-->
         <br /><br />Because we value your privacy, all donations are <a href="http://stripe.com"><img src="img/solid@2x.png" width="119" height="26" border="0" /></a>
       </div>
