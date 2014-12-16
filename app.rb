@@ -168,7 +168,7 @@ __END__
   <div class="container">
     <div class="row lights">
       <div class="col-md-6">
-        <h1>Merry Christmas GOAT!</h1>
+        <h1>GIVE THE GIFT OF THE OUTDOORS</h1>
         <p>The end of the calendar year always brings excitement. Thanksgiving and Christmas are around the corner and that means time with family and friends that we often miss during the year.</p>
         <p>The end of the year also brings planning and looking forward to the next year. At GOAT, that means planning our capacity for the following year. How many kids can we provide summer experiences for? How many new kids will get to join our Adventure Teams? How many kids will we be able to hire this year?</p>
         <p>As we look towards the next year, much of this planning invovles budgeting. Our goal is to serve kids and change their lives in the long-term. To do this, we have to steward our resources well in the short term.</p>
