@@ -9,3 +9,5 @@
 .DS_Store
 
 test.db
+
+test_keys.rb
