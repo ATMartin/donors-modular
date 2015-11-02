@@ -1,0 +1,38 @@
+<%#
+  This partial template will render your "donation grid", including
+  both the "Donate Now" buttons and the "Already Taken" indicators.
+  You can style these using any classes you'd like. Sinatra will handle
+  rendering the correct box based on whether or not a donation has
+  been received.
+
+  Make sure you observe the pattern used for your Stripe button and
+  donation amounts!
+%>
+
+<% @donations.each do |donation| %>
+  <% if donation.paid? %>
+
+  <%# -- Begin "Amount Has Been Donated!" -- %>
+    <div class="giftbox complete">
+      Amount: $<%= donation.amount %>.00 Complete!
+    </div>
+  <%# -- End "Amount Has Been Donated!" -- %>
+
+  <% else %>
+
+  <%# -- Begin "Donate Amount Now!" -- %>
+    <div class="giftbox">
+      <form action="/charge" method="post">
+        <label class="amount">
+
+        </label>
+        <button type="submit" class="stripe-button-el" style="visibility: visible;"
+          data-amount="<%= donation.amount*100 %>" data-id="<%= donation.id %>">
+          <span style="display: block; min-height: 30px;">Donate $<%= donation.amount %></span>
+        </button>
+      </form>
+    </div>
+  <%# -- End "Donate Amount Now!" -- %>
+
+  <% end %>
+<% end %>

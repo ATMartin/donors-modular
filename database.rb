@@ -8,6 +8,7 @@ class Database
     DataMapper.setup(:default, ENV['DATABASE_URL'] || 'postgres://localhost/mydb')
     DataMapper.finalize
     DataMapper.auto_upgrade!
+    self.seed_data unless Donation.all.count > 0
   end
 
   def self.seed_data

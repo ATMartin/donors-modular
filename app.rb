@@ -2,7 +2,7 @@ require 'sinatra'
 require 'dotenv'
 Dotenv.load
 require 'stripe'
-require 'mail'
+# require 'mail'
 require_relative 'database'
 
 Database.initialize
@@ -14,6 +14,7 @@ enable :sessions
 
 Stripe.api_key = settings.secret_key
 
+=begin
 Mail.defaults do
   delivery_method :smtp, { :address   => "smtp.sendgrid.net",
                            :port      => 587,
@@ -23,6 +24,7 @@ Mail.defaults do
                            :authentication => 'plain',
                            :enable_starttls_auto => true }
 end
+=end
 
 get '/' do
   @donations = Donation.all
@@ -62,13 +64,13 @@ post '/charge' do
     halt 500
   end
 
-
+=begin
   mail = Mail.deliver do
   to customer.email
   from 'Ryan McCrary <ryan@goattrips.org>'
   subject 'GOAT Christmas!'
   text_part do
-    body 'Thanks so much for helping make GOAT Christmas a reality! 
+    body 'Thanks so much for helping make GOAT Christmas a reality!
 
 We would love to get your information so we can follow up with a tax receipt and some other GOAT goodies. Please fill out this form for our records - http://gtrps.org/1AtqNcK
 
@@ -78,7 +80,7 @@ If you would like to redeem your 1-month membership at the Mountain Goat indoor 
 
 Our friends at Dapper Ink in Greenville also make some beautiful screen printed goods that make great Christmas Gifts and they are offering 10% off your order in their store. To view and print your 10% off coupon, please visit this link: http://gtrps.org/1CaQik0
 
-Thanks again for helping make GOAT a reality for kids all over Greenville and the state of SC. We would love for you to share GOAT Christmas with your friends and family and encourage them to give whatever they can. You can also keep up with the progress at https://christmas.goattrips.org/goal 
+Thanks again for helping make GOAT a reality for kids all over Greenville and the state of SC. We would love for you to share GOAT Christmas with your friends and family and encourage them to give whatever they can. You can also keep up with the progress at https://christmas.goattrips.org/goal
 
 Please let me know if you have any thoughts or questions about GOAT and/or GOAT Christmas!
 
@@ -89,7 +91,7 @@ GOAT'
   end
   html_part do
     content_type 'text/html; charset=UTF-8'
-    body '<p>Thanks so much for helping make GOAT Christmas a reality!</p> 
+    body '<p>Thanks so much for helping make GOAT Christmas a reality!</p>
 
 <p>We would love to get your information so we can follow up with a tax receipt and some other GOAT goodies. Please fill out this form for our records - http://gtrps.org/1AtqNcK</p>
 
@@ -112,7 +114,7 @@ Executive Director<br />
 GOAT</p>'
   end
   end
-
+=end
   halt 200
 end
 
